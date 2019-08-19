@@ -48,6 +48,78 @@ public class BST<E extends Comparable> {
         return node;
     }
     /**
+     * 前序遍历
+     *
+     */
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node node) {
+        if(root==null) {
+            return;
+        }
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+    /**
+     * 中序遍历
+     * @param
+     */
+    public void inOrder() {
+        inOrder(this.root);
+    }
+
+    private void inOrder(Node node) {
+        if(root==null) {
+            return;
+        }
+
+        preOrder(node.left);
+        System.out.println(node.e);
+        preOrder(node.right);
+    }
+
+    /**
+     * 后序遍历
+     */
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(Node node) {
+        if(root==null) {
+            return;
+        }
+        preOrder(node.left);
+        preOrder(node.right);
+        System.out.println(node.e);
+    }
+    /**
+     * 是否包含元素e
+     */
+    public boolean contain(E e) {
+
+      return   contain(root,e);
+    }
+
+    //以node为根的节点，返回是否包含e的结果
+    private boolean contain(Node node, E e) {
+
+        if(node==null) {
+            return false;
+        }
+        if(e.equals(node.e)) {
+            return true;
+        }else if(e.compareTo(node.e)<0) {
+          return  contain(node.left,e) ;
+        }else{
+           return contain(node.right, e);
+        }
+    }
+
+    /**
      * BST是否为空
      * @return
      */
@@ -62,7 +134,5 @@ public class BST<E extends Comparable> {
     public int getSize() {
         return size;
     }
-
-
 
 }

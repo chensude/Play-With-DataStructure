@@ -39,6 +39,30 @@ public class LinkedList<E extends Comparable<E>> {
         size++;
     }
 
+    /**
+     * 往链表index处添加元素
+     * @return
+     */
+    public void add(E e,int index) {
+        if(index<0||index>size) {
+            throw new IllegalArgumentException("非法参数");
+        }
+        if(index==0) {
+            addFirst(e);
+        }
+        Node pre =head;
+        //找到索引前一个位置
+        for(int i=0;i<index-1;i++) {
+            pre = pre.next;
+        }
+
+       pre.next = new Node(e,pre.next);
+        size++;
+    }
+
+    public void addLast(E e) {
+        add(e,size);
+    }
 
     public Boolean isEmpty() {
         return size==0;
