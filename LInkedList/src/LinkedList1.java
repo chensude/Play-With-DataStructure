@@ -1,7 +1,7 @@
 /**
  * 实现LinkedList
  */
-public class LinkedList<E extends Comparable<E>> {
+public class LinkedList1<E extends Comparable<E>> {
 
     class Node {
         private E e;
@@ -22,7 +22,7 @@ public class LinkedList<E extends Comparable<E>> {
     private int size;
     private Node head;
 
-    public LinkedList() {
+    public LinkedList1() {
         head =null;
         size=0;
     }
