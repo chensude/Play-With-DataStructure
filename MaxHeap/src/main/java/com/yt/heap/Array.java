@@ -5,7 +5,6 @@ package com.yt.heap;
  * @param <E>
  */
 public class Array<E> {
-
     private int size;
 
     private E[] data;
@@ -13,6 +12,14 @@ public class Array<E> {
     public Array(int capacity) {
         data = (E[]) new Object[capacity];
         this.size = 0;
+    }
+
+    public Array(E[] arr) {
+        data =(E[]) new Object[arr.length];
+        for(int i=0;i<arr.length;i++) {
+            data[i] =arr[i];
+        }
+        size=arr.length;
     }
 
     public void swap(int i,int j) {
